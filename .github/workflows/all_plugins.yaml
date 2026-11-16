@@ -32,6 +32,12 @@ jobs:
       - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
         with:
           melos-version: '3.0.1'
+      - name: Cache Dart pub cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
       - name: 'Run Analyze'
         run: melos run analyze
 
@@ -47,6 +53,12 @@ jobs:
       - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
         with:
           melos-version: '3.0.1'
+      - name: Cache Dart pub cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
       - name: 'Flutter Pub Get'
         run: melos run get
 
@@ -65,6 +77,12 @@ jobs:
       - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
         with:
           melos-version: '3.0.1'
+      - name: Cache Dart pub cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
       - name: 'Build web'
         run: flutter build web
         working-directory: stac_playground
@@ -84,6 +102,12 @@ jobs:
       - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
         with:
           melos-version: '3.0.1'
+      - name: Cache Dart pub cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
       - name: 'Dart format'
         run: |
           melos run format
